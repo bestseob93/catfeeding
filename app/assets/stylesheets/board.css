@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Nanum Brush Script';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/nanumbrushscript/v4/NanumBrushScript-Regular.eot);
+  src: url(//fonts.gstatic.com/ea/nanumbrushscript/v4/NanumBrushScript-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/nanumbrushscript/v4/NanumBrushScript-Regular.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/nanumbrushscript/v4/NanumBrushScript-Regular.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/nanumbrushscript/v4/NanumBrushScript-Regular.ttf) format('truetype');
+}
+        .hnew_list_box {
+            margin-top: 80px;
+            background-color: rgba(242, 242, 242, 0.9);
+            height: 250px;
+            border-radius: 40px;
+        }
+
+        .hnew_first_row {
+            height: 30px;
+        }
+
+        .hnew_container {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .hnew_numbering {
+            border: 2px solid;
+            background-color: #fff;
+            height: 30px;
+        }
+
+        .hnew_title {
+            background-color: #fff;
+            height: 30px;
+        }
+
+        .hnew_description {
+            background-color: #fff;
+            height: 70px;
+        }
+
+        .hnew_count_people {
+            background-color: #fff;
+            height: 30px;
+        }
+
+        .hnew_univ {
+            background-color: #fff;
+            height: 70px;
+        }
+
+        .hnew_left_time {
+            background-color: #fff;
+            height: 30px;
+        }
+
+        .hnew_sex {
+          font-size: 88px;
+        }

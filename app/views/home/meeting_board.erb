@@ -1,0 +1,79 @@
+ <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation" >
+        <div class="container topnav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#"><p></p></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                   <a href="board_write" style="color:rgb(235, 153, 225)">글 작성</a>
+                  </li>
+                    <li>
+                        <a href="/home/index">Home</a>
+                    </li>
+                    <li>
+                        <a href="/users/sign_out">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <% @every_post.each do |p| %>
+          <div class="container hnew_list_box">
+      <div class="table-responsive">
+        <a href="#" style="text-decoration: none !important;">
+          <table class="table text-center">
+            <tr style="height:10px;">
+              <% if p.sex == 'male'%>  <!-- 남자면 파랑색, 여자면 하늘색 -->
+              <td rowspan="3" style="border-style:none; color: rgb(91, 155, 213); width:20%; vertical-align:middle; font-size:90px;">男</td>
+              <%else %>
+              <td rowspan="3" style="border-style:none; color: rgb(255, 0, 0); width:20%; vertical-align:middle; font-size:90px;">女</td>
+              <%end%>
+              <td></td>
+              <td></td>
+              <td style="width:20%;"></td>
+            </tr>
+            <tr>
+              <td style="width:10%;" height="15"><%= p.writename%></td>
+              <td style="color: rgb(226, 88, 124); text-align: left; font-weight: bold; width:50%; font-size:20px;" height="10"><%=p.titleofpost%></td>
+              <% if p.sex == 'male'%> <!-- 남자면 파랑색, 여자면 하늘색 -->
+              <td rowspan="2" style="color: rgb(91, 155, 213); width:20%; font-size:70px; vertical-align:middle;"><%= p.per_count %> </td>
+              <% else %>
+              <td rowspan="2" style="color: rgb(255, 0, 0); width:20%; font-size:70px; vertical-align:middle;"><%= p.per_count %> </td>
+              <%end%>
+            </tr>
+            <tr>
+              <td colspan="2" style="cursor:pointer; text-align:left;font-size:20px;text-indent:23px;" 
+              onmouseover = "this.style.color ='blue'" onmouseout = "this.style.color ='#323232'" 
+              ><%=p.descriptionofpost%></td>
+            </tr>
+            <tr>
+              <td style="width:20%; font-size:20px; font-weight:bold;" height="30"><%= p.school %> </td>
+              <td colspan="2"></td>
+              <td>조회수 : 3</td>
+            </tr>
+            <tr>
+              <td style="width:20%; text-align:center;"><%= p.created_at.in_time_zone("Asia/Seoul").strftime("%Y-%m-%d")  %></td>
+              <td colspan="2" style="width:20%; text-align:left;">
+                <a href="/post_update/<%= p.id %>">[수정]</a>
+                <a href="/post_destroy/<%= p.id %>">[삭제]</a>  
+                </td>
+              <td style="width:60%; border-radius:20px; background-color:rgb(235, 153, 225); color: white;">매칭 완료</td>
+            </tr>
+                  </table>
+                 
+                </div>
+              </div>
+              </a>
+    <% end %>

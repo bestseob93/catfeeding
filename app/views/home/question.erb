@@ -1,0 +1,70 @@
+<!-- 게시판 글쓰기-->
+ <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation" >
+        <div class="container topnav">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#"><p></p></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/home/index">Home</a>
+                    </li>
+                    <li>
+                        <a href="/users/sign_out">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container" style="border-radius:10px; background:rgba(255,255,255,0.6); margin-top:70px;">
+        <div style="margin-top: 30px; margin-bottom:30px;">
+        
+       
+          <a href="/home/index"><%= image_tag "logo2.png" %></a>
+          <h6  style="text-align:right"><a href="/home/qanda" style="margin-right:80px;"><%= image_tag "write3.png" %></a></h6>
+          </div>
+         <p style="margin:20px 0 -5px 0; margin-bottom:10px"><span style="color:#FC8702"><strong>※  <%= current_user.email %></strong></span>님</p>
+
+          <div class="table-responsive col-md-10" style="margin-left: 80px;">
+            <center>
+            <table class="table" style="text-align:center;">
+                    
+                <tr>
+                    <td style="width:5%;">번호</td>
+                    <td style="width:35%;">제목</td>
+                    <td style="width:10%;">작성자</td>
+                    <td style="width:30%;">보낸 날짜</td>
+                    <td style="width:10%;"></td>
+                    <td style="width:10%;"></td>
+                </tr>
+               <% @every_post2.each do |p| %>
+                <tr>
+                     
+                    <td><%=p.id%></td>
+                    <td style="cursor:pointer;" onmouseover = "this.style.color ='blue'" onmouseout = "this.style.color ='#323232'" onclick = "location.href='/home/update_view/<%=p.id%>'"><%=p.title%></td>
+                    <td><%=p.quser %></td>
+                    <td><%=p.created_at.in_time_zone("Asia/Seoul").strftime("%Y.%m.%d  %H:%M")%></td>
+                    <td><a href="/ques_update2/<%= p.id %>">[수정]</a></td>
+                    <td><a href="/ques_destroy/<%= p.id %>">[삭제]</a></td>
+              
+                </tr>
+                <% end %>
+            </table>
+           </center>
+           
+           
+          </div>
+          
+          </div>
+    </div>
+</body>

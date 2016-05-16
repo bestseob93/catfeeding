@@ -1,0 +1,29 @@
+<style>
+  
+a {
+    color: black;
+    text-decoration: none;
+}
+</style>
+
+<div class="logo">
+  
+</div>
+<!--<h2 style="font-weight:bold;font-size:50px;font-color:blue;-->
+<!--text-align:center;margin-bottom:39px;">Forgot your password?</h2>-->
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="login-block">
+    <h3>Forgot your password?</h3>
+    <%= devise_error_messages! %>
+  
+    <%= f.label :email %> :
+    <%= f.email_field :email, autofocus: true %>
+    
+    <button> <% f.submit %> Send instructions</button>
+    
+    <p style="font-size:12px; text-align:left; margin-top: 20px;"><%= render "devise/shared/links" %></p>
+    </div>
+  </div>
+<% end %>
+</div>

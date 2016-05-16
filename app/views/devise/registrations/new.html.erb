@@ -1,0 +1,34 @@
+<style>
+  
+a {
+    color: black;
+    text-decoration: none;
+}
+</style>
+
+<div class="logo">
+  
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="login-block">
+    <h1>SIGN UP</h1>
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <button> <%f.submit "Sign up" %>SIGN UP</button>
+    
+    <p style="font-size:12px; text-align:left; margin-top: 20px;"><%= render "devise/shared/links" %></p>
+  </div>
+<% end %>
+
